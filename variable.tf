@@ -44,3 +44,12 @@ variable "ssh_key" {
   type = string
   default = "tp_dev_ynov"
 }
+variable "ingress" {
+  type = string
+  default = "22"
+}
+variable "egress" {
+  type = string
+  default = "80"
+}
+	
