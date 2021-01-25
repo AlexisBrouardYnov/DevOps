@@ -1,19 +1,7 @@
 ---
-  - hosts: server
-    become: yes
-    tasks:
-      - name: Install nginx package
-        apt:
-          name: nginx
-          update_cache: true
 
-      - name: Supprimer répertoire et contenu
-        file: path=/var/www/html state=absent
+- hosts: server
+  become: true
 
-      - name: clone un repository
-        git: >
-          repo=https://github.com/AlexisBrouardYnov/html.git
-          dest=/var/www/html/
-    handlers:
-      - name: start Nginx
-        service: name=nginx state=started
+  roles:
+    - nginx

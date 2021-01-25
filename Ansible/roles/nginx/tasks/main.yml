@@ -1,0 +1,12 @@
+- name: Installation de nginx
+  command: apt install nginx
+
+- name: Suppression du répertoire et contenu
+  file: path=/var/www/html state=absent
+
+- name: Clonage du repository git
+  git: >
+    repo=https://github.com/AlexisBrouardYnov/html.git
+    dest=/var/www/html/
+- name: Lancement de nginx
+  service: name=nginx enabled=yes state=started
