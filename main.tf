@@ -22,6 +22,7 @@ resource "aws_instance" "web" {
   count         = var.create_instance ? var.instance_number : 0
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
+  key_nam       = var.ssh_key
 
   tags = {
     Name = var.instance_name

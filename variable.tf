@@ -39,3 +39,8 @@ variable "create_instance" {
   description = "Create instance or not"
   default = true
 }
+variable "ssh_key" {
+
+  type = string
+  default = "tp_dev_ynov"
+}
