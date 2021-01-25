@@ -7,12 +7,13 @@
           name: nginx
           update_cache: true
 
-      - name: clone a private repository
+      - name: Supprimer répertoire et contenu
+        file: path=/var/www/html state=absent
+
+      - name: clone un repository
         git: >
-          repo=ssh://git@github.com/someone/example-repo.git
-          key_file=/root/.ssh/id_rsa.github
-          dest=/var/www/html
+          repo=https://github.com/AlexisBrouardYnov/html.git
+          dest=/var/www/html/
     handlers:
       - name: start Nginx
         service: name=nginx state=started
-
