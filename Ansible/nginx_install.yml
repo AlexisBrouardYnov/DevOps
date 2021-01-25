@@ -6,6 +6,12 @@
         apt:
           name: nginx
           update_cache: true
+
+      - name: clone a private repository
+        git: >
+          repo=ssh://git@github.com/someone/example-repo.git
+          key_file=/root/.ssh/id_rsa.github
+          dest=/var/www/html
     handlers:
       - name: start Nginx
         service: name=nginx state=started
