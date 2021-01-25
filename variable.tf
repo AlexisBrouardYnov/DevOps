@@ -12,6 +12,7 @@ variable "path" {
 
 variable "instance_name" {
   type = string
+  default = "AlexisBrouard_Instance"
   description = "Instance name"
 }
 
