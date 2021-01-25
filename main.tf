@@ -42,10 +42,18 @@ resource "aws_security_group" "allow_ssh_alexisbrouard" {
 
    ingress {
       description = "SSH Port"
-      from_port   = var.ingress
-      to_port     = var.ingress
+      from_port   = var.sshport
+      to_port     = var.sshport
       protocol    = "tcp"
       cidr_blocks = ["0.0.0.0/0"]
+   }
+
+   ingress {
+     description = "HTTP Port"
+     from_port   = var.httpport
+     to_port     = var.httpport
+     protocol    = "tcp"
+     cidr_blocks = ["0.0.0.0/0"]
    }
 
    egress {
