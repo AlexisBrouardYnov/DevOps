@@ -1,10 +1,10 @@
 ---
-- hosts: hosts
+- name: Install web server
+  hosts: web
+  gather_facts: true
+  become: true
   tasks:
-   - name: ensure nginx is at the lastest version
-     apt: name=nginx state=latest
-   - name: start nginx
-     service:
-       name: nginx
-       state: started
-
+   - name: Install nginx package
+     apt:
+      name: nginx
+      update_cache: true
